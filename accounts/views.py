@@ -12,7 +12,7 @@ from .forms import UserLoginForm, UserRegisterForm
 
 def login_view(request):
     next = request.GET.get('next')
-    form = UserLoginForm(requst.POST or None)
+    form = UserLoginForm(request.POST or None)
     if form.is_valid():
         username = form.cleaned_data.get('username')
         password = form.cleaned_data.get('password')

@@ -19,7 +19,12 @@ from django.urls import path
 
 from .views import home
 
+#importing login views form accounts app
+from accounts.views import login_view
+
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', home)
+    path('', home),
+    #setting url for login 
+    path('accounts/login/', login_view)
 ]
