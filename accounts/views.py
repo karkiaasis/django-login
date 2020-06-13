@@ -26,3 +26,23 @@ def login_view(request):
         'form': form,  
     }
     return render(request, "login.html", context)
+
+
+def register_view(request):
+    next = request.GET.get('next')
+    form = UserRegisterForm(request.POST or None)
+    if form.is_valid():
+        user =from.save(commit=False)
+        password = form.cleaned_data.get('password')
+        user.set_password(password)
+        user.save()
+        new_user = authenticate(username=user.username, password=password)
+        login(request, new_user)
+        if next:
+            return redirect(next)
+        return redirect('/')
+    
+    context = {
+        'form': form,  
+    }
+    return render(request, "signup.html", context)
