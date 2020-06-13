@@ -46,3 +46,9 @@ def register_view(request):
         'form': form,  
     }
     return render(request, "signup.html", context)
+
+
+
+def logout_view(request):
+    logout(request)
+    return redirect('/')
