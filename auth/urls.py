@@ -17,10 +17,11 @@ from django.contrib import admin
 from django.urls import path
 
 
+
 from .views import home
 
 #importing login views and register views form accounts app
-from accounts.views import login_view, register_view, login_view
+from accounts.views import login_view, register_view, logout_view
 
 urlpatterns = [
     path('admin/', admin.site.urls),
