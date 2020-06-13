@@ -19,12 +19,14 @@ from django.urls import path
 
 from .views import home
 
-#importing login views form accounts app
-from accounts.views import login_view
+#importing login views and register views form accounts app
+from accounts.views import login_view, register_view
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', home),
     #setting url for login 
     path('accounts/login/', login_view)
+    #setting url for register
+    path('accounts/register/', register_view)
 ]
